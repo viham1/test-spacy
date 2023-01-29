@@ -1,0 +1,23 @@
+jobs:
+  CloneRepo:
+    resources:
+      instance-type: C5
+    outputs:
+      repo:
+        type: volume
+    uses: git-checkout@v1
+    with:
+      url: https://github.com/viham1/test-spacy.git
+  StyleGan2:
+    resources:
+      instance-type: P4000
+    needs:
+      - CloneRepo
+    inputs:
+      repo: CloneRepo.outputs.repo
+    uses: script@v1
+    with:
+      script: |-
+        python run_generator.py
+          --pos=test
+      image: hackandcraft/spacygpubase
