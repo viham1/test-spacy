@@ -18,6 +18,6 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        python run_generator.py
-          --pos=test
-      image: hackandcraft/spacygpubase
+        cd /inputs/repo
+        python task.py
+      image: viham1/spacy-gpu

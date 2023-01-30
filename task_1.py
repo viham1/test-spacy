@@ -3,12 +3,6 @@ import spacy
 from spacy.training import Example
 import argparse
 
-parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('--pos', type=str, help='Example Positional Argument') # will be accesible under args.POS
-
-args = parser.parse_args()
-
-print(args.pos)
 
 LABEL = 'ANIMAL'
 TRAIN_DATA = [
