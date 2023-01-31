@@ -26,5 +26,6 @@ jobs:
       script: |-
         cd /inputs/repo
         python task.py
+        mv /model/model-last /outputs/model
         ls
 
