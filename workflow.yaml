@@ -23,7 +23,5 @@ jobs:
       image: viham1/spacy-gpu:latest
       script: |-
         cd /inputs/repo
-        ls ..
-        ls ../../
         python task.py
       
