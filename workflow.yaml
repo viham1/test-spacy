@@ -18,10 +18,15 @@ jobs:
     uses: script@v1
     outputs:
       model:
-        type: volume
+        type: dataset
+        with:
+          ref: demo-dataset
     with:
       image: viham1/spacy-gpu:latest
       script: |-
-        cd /inputs/repo
+        cp -R /inputs/repo /nlp
+        cd /nlp
         python task.py
+        mv model-best /outputs/model
+        ls "-aFlR" /outputs/model
       
