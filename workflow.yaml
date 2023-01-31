@@ -16,9 +16,14 @@ jobs:
     inputs:
       repo: CloneRepo.outputs.repo
     uses: script@v1
+    outputs:
+      model:
+        type: volume
     with:
       image: viham1/spacy-gpu:latest
       script: |-
+        cd /inputs/repo
+        cd ./outputs/model
         cd /inputs/repo
         python task.py
       
