@@ -8,9 +8,9 @@ jobs:
     uses: git-checkout@v1
     with:
       url: https://github.com/viham1/test-spacy.git
-  StyleGan2:
+  NER:
     resources:
-      instance-type: P4000
+      instance-type: A4000
     needs:
       - CloneRepo
     inputs:
@@ -28,4 +28,14 @@ jobs:
         python task.py
         mv /model/model-last /outputs/model
         ls
+  CreateModel:
+    inputs:
+      model: NER.outputs.model
+    outputs:
+      model-id:
+        type: string
+    uses: create-model@v1
+    with:
+      name: NER
+      type: Custom #
 
